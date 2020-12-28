@@ -3,6 +3,7 @@ import Foundation
 let inputValue = readLine()!
 
 //cm를 m로 변환하는 함수
+<<<<<<< HEAD
 func changeCMToM(inputNumber: Double) -> String {
     let output = inputNumber * 0.01
     return String(format: "%.2f", output)
@@ -18,10 +19,31 @@ func changeMToCM(inputNumber: Double) -> String {
 // String타입의 입력값의 단위를 제거한 후 Int타입만 남기는 함수
 func onlyNumbers(convertInput: String) -> Double {
     let alphabet = "abcdefghijklmnopqrstuvwxyz "
+=======
+func changeCMToM(inputValue: String) {
+    var output = inputValue
+    let number = onlyNumbers(convertInput: inputValue)
+    output = "\(number*0.01)m"
+    print(output)
+}
+
+//m를 cm로 변환하는 함수
+func changeMToCM(inputValue: String) {
+    var output = inputValue
+    let number = onlyNumbers(convertInput: inputValue)
+    output = "\(number*100)cm"
+    print(output)
+}
+
+// String타입의 입력값을 단위를 제거한 후 Int타입만 남기는 함수
+func onlyNumbers(convertInput: String) -> Double {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+>>>>>>> main
     let intTypeInput = Double(convertInput.filter{!alphabet.contains($0)})!
     return intTypeInput
 }
 
+<<<<<<< HEAD
 // 입력값에서 길이값을 빼고 남은 단위들의 배열
 func onlyUnits(convertInput: String) -> [String] {
     let alphabet = "abcdefghijklmnopqrstuvwxyz "
@@ -81,3 +103,19 @@ func convertInch(intValue: String) {
 
 convertInch(intValue: inputValue)
 
+=======
+func chooseMethod(inputValue: String) {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+    let intTypeInput = inputValue.filter{alphabet.contains($0)}
+    switch intTypeInput {
+    case "cm":
+        changeCMToM(inputValue: inputValue)
+    case "m":
+        changeMToCM(inputValue: inputValue)
+    default:
+        break
+    }
+}
+
+chooseMethod(inputValue: inputValue)
+>>>>>>> main
