@@ -25,3 +25,17 @@ func onlyNumbers(convertInput: String) -> Double {
     return intTypeInput
 }
 
+func chooseMethod(inputValue: String) {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+    let intTypeInput = inputValue.filter{alphabet.contains($0)}
+    switch intTypeInput {
+    case "cm":
+        changeCMToM(inputValue: inputValue)
+    case "m":
+        changeMToCM(inputValue: inputValue)
+    default:
+        break
+    }
+}
+
+chooseMethod(inputValue: inputValue)
